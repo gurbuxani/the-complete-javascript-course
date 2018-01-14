@@ -36,7 +36,7 @@ console.log(player2 + '\'s score is ' + p2Score);
 p3Score = parseInt(p3Height) + 5 * parseInt(p3Age);
 console.log(player3 + '\'s score is ' + p3Score);
 
-// Find out who the winner is.
+// Find out who the winner is and print the results.
 if (p1Score > p2Score && p3Score) {
   console.log(player1.toUpperCase() + ' WINS THE GAME!');
 } else if (p2Score > p1Score && p3Score) {
