@@ -28,7 +28,7 @@ p3Height = prompt(player3 + ', how tall are you? (CM)');
 p3Age = prompt(player3 + ', what\'s your age?');
 console.log(player3 + ' is ' + p3Height + 'cm. tall and ' + p3Age + ' years old.');
 
-// Claculate and print scores for the tree players.
+// Claculate and print scores for the three players.
 p1Score = parseInt(p1Height) + 5 * parseInt(p1Age);
 console.log(player1 + '\'s score is ' + p1Score);
 p2Score = parseInt(p2Height) + 5 * parseInt(p2Age);
