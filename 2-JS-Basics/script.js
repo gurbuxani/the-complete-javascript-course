@@ -1,4 +1,3 @@
-// test
 // var name = 'John';
 // console.log(name);
 //
@@ -95,19 +94,125 @@
 // }
 
 
-function calculateAge(yearOfBirth) {
-  var age = 2018 - yearOfBirth;
-  return age;
-}
+// function calculateAge(yearOfBirth) {
+//   var age = 2018 - yearOfBirth;
+//   return age;
+// }
+// 
+// var ageJerry = calculateAge(1988);
+// var ageMike = calculateAge(1969);
+// var ageMary = calculateAge(1948);
+ 
+// console.log(ageMike);
 
-var ageAshwin = calculateAge(1988);
-var ageMike = calculateAge(1969);
-var ageMary = calculateAge(1948);
+// function yearsUntilRetirement(name, yearOfBirth) {
+//   var age = calculateAge(yearOfBirth);
+//   var retirement = 60 - age;
+// 
+//   if (retirement > 0) {
+//   console.log(name + ' retires in ' + retirement + ' years');  
+// } else if (retirement === 0) {
+//   console.log(name + ' retires in this year');
+// } else {
+//   console.log(name + ' is already retired');
+// }  
+// }
+// 
+// yearsUntilRetirement('Jerry', 1988);
+// yearsUntilRetirement('Mike', 1958);
+// yearsUntilRetirement('Mary', 1948);
 
-console.log(ageMike);
+// var names = ['Ravi', 'Anand', 'Prashant'];
+// var years = new Array(1990, 1969, 1948);
+// 
+// console.log(years[2]);
+// names[1] = 'Maulik';
+// console.log(names[1]);
+// 
+// var ravi = ['Ravi', 'Saxena', 1990, 'Student', false];
+// 
+// ravi.push('yellow');
+// ravi.unshift('Mr.');
+// ravi.pop();
+// ravi.shift();
+// 
+// if (ravi.indexOf('teacher') === -1) {
+//   console.log('Ravi is not a teacher.');
+// } else {
+//   console.log('Ravi is a teacher.');
+// }
 
-function yearsUntilRetirement(yearOfBirth) {
-  
-}
+// var john = {
+//   name: 'John',
+//   lastName: 'Smith',
+//   yearOfBirth: 1990,
+//   job: 'techer',
+//   isMarried: false
+// };
+// console.log(john.lastName);
+// console.log(john['lastName']);
+// 
+// var abc = 'job';
+// console.log(john[abc]);
+// 
+// john.lastName = 'Miller';
+// john['job'] = 'programmer';
+// 
+// console.log(john);
 
-yearsUntilRetirement(1988);
+
+// var jane = new Object();
+// jane.name = 'Jane';
+// jane.lastName = 'Smith';
+// jane['yearOfBirth'] = 1969;
+// jane.job = 'retired';
+// jane['isMarried'] = true;
+// 
+// console.log(jane);
+
+
+// var john = {
+//   name: 'John',
+//   lastName: 'Smith',
+//   yearOfBirth: 1990,
+//   job: 'techer',
+//   isMarried: false,
+//   family: ['Jane', 'Mark', 'Bob'],
+//   calculateAge: function() {
+//       this.age = 2018 - this.yearOfBirth;
+//     }
+//   };
+// john.calculateAge();
+// console.log(john);
+
+// for (var i = 0; i < 10; i++) {
+//   console.log(i);
+// }
+
+// var names = ['John', 'Jane', 'Mary', 'Mark', 'Bob'];
+
+// for (var i = 0; i < names.length; i++) {
+//   console.log(names[i]);
+// }
+ 
+// for (var i = names.length - 1; i >= 0; i--) {
+//   console.log(names[i]);
+// }
+
+// var i = 0;
+// while (i < names.length) {
+//   console.log(names[i]);
+//   i++;
+// }
+
+// for (var i = 1; i < 5; i++) {
+//   console.log(i);
+//   if (i === 3) {
+//     break;
+//   }
+
+// for (var i = 1; i < 5; i++) {
+//     if (i === 3) {
+//     continue;
+//   } console.log(i);
+// }
