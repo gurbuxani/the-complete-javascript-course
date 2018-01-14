@@ -1,17 +1,19 @@
 function printFullAge(years) {
-  var ages = [];
-  var fullAges = [];
+  var ages = []; // to store ages based on data from years array
+  var fullAges = []; // to store corresponding boolean values, for whether or not the persons are of full age ( > 18 years old)
 
-  for (var i = 0; i < years.length; i++) {
-    ages.push(2018 - years[i]);
+// Populate the ages array
+  for (var i = 0; i < years.length; i++) { //iterate through years array
+    ages.push(2018 - years[i]); // push age values into the ages array
   }
 
+// Populate the fullAges array
   for (var i = 0; i < ages.length; i++) {
-    if (ages[i] > 17) {
-      fullAges.push(true);
+    if (ages[i] > 17) { // if the person is of full age ( >= 18 years old)
+      fullAges.push(true); // push true to fullAges array
       console.log('Person ' + (i + 1) + ' IS of full age and is ' + ages[i] + ' years old.');
-    } else {
-      fullAges.push(false);
+    } else { // if the person is not of full age ( < 18 years old)
+      fullAges.push(false); // push false to fullAges array
       console.log('Person ' + (i + 1) + ' NOT of full age and is ' + ages[i] + ' years old.');
     }
   } return fullAges;
