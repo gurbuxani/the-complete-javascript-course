@@ -9,10 +9,10 @@ function printFullAge(years) {
   for (var i = 0; i < ages.length; i++) {
     if (ages[i] > 17) {
       fullAges.push(true);
-      console.log('Person ' + (i + 1) + ' IS of full age and is ' + ages[i] + 'years old.');
+      console.log('Person ' + (i + 1) + ' IS of full age and is ' + ages[i] + ' years old.');
     } else {
       fullAges.push(false);
-      console.log('Person ' + (i + 1) + ' NOT of full age and is ' + ages[i] + 'years old.');
+      console.log('Person ' + (i + 1) + ' NOT of full age and is ' + ages[i] + ' years old.');
     }
   } return fullAges;
 } 
