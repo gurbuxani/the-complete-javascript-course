@@ -1,14 +1,14 @@
 //Player names
-var player1;    var player2;   var player3;
+var player1,	player2,	player3;
 
 // Player heights
-var p1Height;   var p2Height;   var p3Height;
+var p1Height,	p2Height,	p3Height;
 
 // Player ages
-var p1Age;      var p2Age;      var p3Age;
+var p1Age,	p2Age,		p3Age;
 
 // Player scores
-var p1Score;    var p2Score;    var p3Score;
+var p1Score,	p2Score,	p3Score;
 
 //Ask Player 1 for inputs.
 player1 = prompt('Player 1, what\'s your name?');
