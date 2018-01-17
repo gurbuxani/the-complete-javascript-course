@@ -15,10 +15,17 @@ score = [0, 0];
 roundScore = 0;
 activePlayer = 1;
 
-dice = Math.floor(Math.random() * 6) + 1;
+document.querySelector('.dice').style.display = 'none'; // Hide dice before the game starts
 
-document.querySelector('#current-' + activePlayer).textContent = dice;
 
-var x = document.querySelector('#score-' + activePlayer).textContent
+document.querySelector('.btn-roll').addEventListener('click', function() { // When the player clicks the roll dice button
+  diceValue = Math.floor(Math.random() * 6) + 1; // Picks a random number between 1 and 6 and stores it to var diceValue
+  var diceDOM = document.querySelector('.dice'); //Shorthand for the dice's document selector property
+  diceDOM.style.display = 'block'; // Displays the dice
+  diceDOM.src = 'dice-' + diceValue + '.png' // Displays the correct .png file for the dice, based on random diceValue
+});
 
-document.querySelector('.dice').style.display = 'none';
+
+
+// document.querySelector('#current-' + activePlayer).textContent = dice; //Display score for current dice roll
+// var x = document.querySelector('#score-' + activePlayer).textContent //Store score for current dice roll to var x
