@@ -9,52 +9,84 @@ GAME RULES:
 
 */
 
-var score, roundScore, activePlayer, dice;
+var score, roundScore, activePlayer, dice; // Declare global variables
 
-score = [0, 0];
-roundScore = 0;
-activePlayer = 0;
+init(); // Initialize game
 
-document.querySelector('.dice').style.display = 'none'; // Hide dice before the game starts
-
-document.querySelector('.btn-roll').addEventListener('click', function() { // When the player clicks the roll dice button
+// ROLL BUTTON
+document.querySelector('.btn-roll').addEventListener('click', function() { // When the player clicks the Roll Dice button
   diceValue = Math.floor(Math.random() * 6) + 1; // Picks a random number between 1 and 6 and stores it to var diceValue
   var diceDOM = document.querySelector('.dice'); //Shorthand for the dice's document selector property
   diceDOM.style.display = 'block'; // Displays the dice
   diceDOM.src = 'dice-' + diceValue + '.png' // Displays the correct .png file for the dice, based on random diceValue
   
-  if (diceValue !== 1) {
-    roundScore += diceValue;
-    document.querySelector('#current-' + activePlayer).textContent = roundScore; //Display score for current dice roll
+  if (diceValue !== 1) { // If the random dice value is not 1
+    roundScore += diceValue; // Add dice value to the round score
+    document.querySelector('#current-' + activePlayer).textContent = roundScore; //Display the total round score for current dice roll
   } else {
-    nextPlayer();
+    nextPlayer(); // Switch players
   }
 });
 
-document.querySelector('.btn-hold').addEventListener('click', function() {
-  score[activePlayer] += roundScore;
-  document.querySelector('#score-' + activePlayer).textContent = score[activePlayer];
+// HOLD BUTTON
+document.querySelector('.btn-hold').addEventListener('click', function() { // When the player clicks the Hold button
+  score[activePlayer] += roundScore; // Add the active player's round score to their global score
+  document.querySelector('#score-' + activePlayer).textContent = score[activePlayer]; // Update the UI to show active player's global score
   
-  if (score[activePlayer] >= 10) {
-    document.querySelector('#name-' + activePlayer).textContent = 'WINNER!';
-    document.querySelector('.dice').src = 'winner-' + activePlayer + '.png';
-    document.querySelector('player-' + activePlayer + '-panel').classList.remove('active');
-    document.querySelector('player-' + activePlayer + '-panel').classList.add('winner');
+  if (score[activePlayer] >= 100) { // If the active player's global score is more than 100
+    document.querySelector('#name-' + activePlayer).textContent = 'WINNER!'; // Update the UI to show active player's name as 'WINNER!'
+    document.querySelector('.dice').src = 'winner-' + activePlayer + '.png'; // Update the UI to show the winner's trophy in place of the dive 
+    document.querySelector('.player-' + activePlayer + '-panel').classList.remove('active'); // Remove 'active' CSS class from the active player
+    document.querySelector('.player-' + activePlayer + '-panel').classList.add('winner'); // Add 'winner' CSS class to the active player to highlight their victory
+    gameOver(); // Call the gameOver function
   } else {
-  nextPlayer();  
+  nextPlayer(); // Switch players 
   }
 });
 
-function nextPlayer() {
-  activePlayer === 0 ? activePlayer = 1 : activePlayer = 0;
-  roundScore = 0;
+// NEW GAME BUTTON
+document.querySelector('.btn-new').addEventListener('click', init); // When the player clicks the New Game button call the init function
   
-  document.getElementById('current-0').textContent = '0';
-  document.getElementById('current-1').textContent = '0';
+function init() {
+  score = [0, 0]; // Set score to 0 for both players
+  activePlayer = 0; // Set Player 1 as default active player
+  roundScore = 0; // set round score to 0 for both players
   
-  document.querySelector('.player-0-panel').classList.toggle('active');
-  document.querySelector('.player-1-panel').classList.toggle('active');
+  document.querySelector('.dice').style.display = 'none'; // Hide dice before the first roll
+  
+  document.getElementById('score-0').textContent = '0'; // Update UI to show Player 1's global score as 0
+  document.getElementById('score-1').textContent = '0'; // Update UI to show Player 2's global score as 0
+  document.getElementById('current-0').textContent = '0'; // Update UI to show Player 1's round score as 0
+  document.getElementById('current-1').textContent = '0'; // Update UI to show Player 2's round score as 0
+  
+  document.getElementById('name-0').textContent = 'Player 1'; // Update UI to show Player 1
+  document.getElementById('name-1').textContent = 'Player 2'; //Update UI to show Player 2
+  
+  document.querySelector('.player-0-panel').classList.remove('winner'); //Update UI to remove 'winner' CSS class from Player 1
+  document.querySelector('.player-1-panel').classList.remove('winner'); //Update UI to remove 'winner' CSS class from Player 2 
+  
+  document.querySelector('.player-0-panel').classList.remove('active'); //Update UI to remove 'active' CSS class from Player 1 
+  document.querySelector('.player-1-panel').classList.remove('active'); //Update UI to remove 'active' CSS class from Player 2 
+  
+  document.querySelector('.player-0-panel').classList.add('active'); //Update UI to add 'active' CSS class to Player 1
+  
+  document.querySelector('.btn-roll').style.display = 'block'; // Update UI to display the Roll Dice button
+  document.querySelector('.btn-hold').style.display = 'block'; // Update UI to display the Hold button
 }
 
-// 
-// var x = document.querySelector('#score-' + activePlayer).textContent //Store score for current dice roll to var x
+
+function nextPlayer() { // This function switches players
+  roundScore = 0; // Update the active player's round score to 0
+  activePlayer === 0 ? activePlayer = 1 : activePlayer = 0; // If player 1 is active, switch to player 2 ... and vice-versa
+    
+  document.getElementById('current-0').textContent = '0'; // Update UI to show roundscore as 0 for player 1
+  document.getElementById('current-1').textContent = '0'; // Update UI to show roundscore as 0 for player 2
+  
+  document.querySelector('.player-0-panel').classList.toggle('active'); // Toggle 'active' CSS class for player 1
+  document.querySelector('.player-1-panel').classList.toggle('active'); // Toggle 'active' CSS class for player 2
+}
+
+function gameOver() {
+  document.querySelector('.btn-roll').style.display = 'none'; // Update UI to hide the Roll Dice button
+  document.querySelector('.btn-hold').style.display = 'none'; // Update UI to hide the Hold button
+}
