@@ -1,3 +1,5 @@
+// Please note, this is only practice code. Therefore, every line is commented to reinforce learning.
+
 /*
 GAME RULES:
 
